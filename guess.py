@@ -1,2 +1,3 @@
-def guess():
-    guess = input("\nPlease enter your guess: ").upper()
+word_list = ["E", "X", "I", "T"]
+guess = input("Provide input: ")
+
