@@ -20,18 +20,22 @@ guess = input("\nPlease enter your guess: ").upper()
 good_guesses = []
 bad_guesses = []
 
-for letter in guess:
-    if letter in good_guesses:
-        good_guesses.append(letter)
-    else:
-        bad_guesses.append(letter)
 
 for letter in random_word_list:
     if guess == letter:
         print("letter found")
+        for letter in guess:
+            if letter != good_guesses:
+                good_guesses.append(letter)
+                print("good" + str(good_guesses))
+            else:
+                bad_guesses.append(letter)
+                print("bad" + str(bad_guesses))
         guess = input("\nPlease enter your guess: ").upper()
-        continue
-    #elif guess != random_word_list[letter]:
+
+
+
+            #elif guess != random_word_list[letter]:
     #    print("letter not found")
     #    guess = input("\nPlease enter your guess: ").upper()
     #    continue
