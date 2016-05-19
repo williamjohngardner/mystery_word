@@ -40,5 +40,3 @@ while True:
     print("\n Good Guesses:" + str(good_guesses))
     print("\n Bad Guesses: " + str(bad_guesses))
     guess = input("\nPlease enter your guess: ").upper()
-
-
