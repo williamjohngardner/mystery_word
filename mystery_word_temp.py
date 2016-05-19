@@ -10,7 +10,7 @@ bad_guesses = []
 
 print(random_word)
 print("Your word contains " + str(len(random_word_list)) + " letters")
-for letter in random_word_list:
+for spaces in random_word:
         print("# ", end='')
 
 guess = input("\nPlease enter your guess: ").upper()
@@ -20,20 +20,13 @@ while True:
         if guess in random_word_list:
             if guess not in good_guesses:
                 good_guesses.append(guess)
-                for letter in random_word_list:
-                    if letter in good_guesses:
-                        print(letter, end='')
-                    else:
-                        print('_', end='')
         else:
             if guess not in bad_guesses:
                 bad_guesses.append(guess)
-                for letter in random_word_list:
-                    if letter in good_guesses:
-                        print(letter, end='')
-                    else:
-                        print('_', end='')
-
+        if letter in good_guesses:
+            print(letter, end='')
+        else:
+            print('_ ', end='')
     print("\n Good Guesses:" + str(good_guesses))
     print("\n Bad Guesses: " + str(bad_guesses))
     guess = input("\nPlease enter your guess: ").upper()
