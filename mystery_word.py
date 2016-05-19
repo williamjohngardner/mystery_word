@@ -21,11 +21,24 @@ bad_guesses = []
 while True:
     for letter in random_word_list:
         if guess in random_word_list:
-            good_guesses.append(guess)
-            print("good" + str(good_guesses))
-        guess = input("\nPlease enter your guess: ").upper()
+            if guess not in good_guesses:
+                good_guesses.append(guess)
+                for letter in random_word_list:
+                    if letter in good_guesses:
+                        print(letter, end='')
+                    else:
+                        print('_', end='')
+        else:
+            if guess not in bad_guesses:
+                bad_guesses.append(guess)
+                for letter in random_word_list:
+                    if letter in good_guesses:
+                        print(letter, end='')
+                    else:
+                        print('_', end='')
 
-        if guess not in random_word_list:
-            bad_guesses.append(guess)
-            print("bad" + str(bad_guesses))
-        guess = input("\nPlease enter your guess: ").upper()
+    print("\n Good Guesses:" + str(good_guesses))
+    print("\n Bad Guesses: " + str(bad_guesses))
+    guess = input("\nPlease enter your guess: ").upper()
+
+
