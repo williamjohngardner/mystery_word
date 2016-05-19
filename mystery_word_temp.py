@@ -7,7 +7,6 @@ random_word = random.choice(words).upper()
 random_word_list = list(random_word)
 good_guesses = []
 bad_guesses = []
-turns = 0
 
 print(random_word)
 print("Your word contains " + str(len(random_word_list)) + " letters")
@@ -17,17 +16,24 @@ for letter in random_word_list:
 guess = input("\nPlease enter your guess: ").upper()
 
 while True:
-    for guess in random_word_list:
-        if guess not in good_guesses:
-            good_guesses.append(guess)
-        elif guess not in bad_guesses:
-            bad_guesses.append(guess)
-        if guess in good_guesses:
-            print(str(guess) + ' ', end='')
-            # The turn variable should not be incremented here
+    for letter in random_word_list:
+        if guess in random_word_list:
+            if guess not in good_guesses:
+                good_guesses.append(guess)
+                for letter in random_word_list:
+                    if letter in good_guesses:
+                        print(letter, end='')
+                    else:
+                        print('_', end='')
         else:
-            print('_ ', end='')
-            turns += 1
-print("\n Good Guesses:" + str(good_guesses))
-print("\n Bad Guesses: " + str(bad_guesses))
-guess = input("\nPlease enter your guess: ").upper()
+            if guess not in bad_guesses:
+                bad_guesses.append(guess)
+                for letter in random_word_list:
+                    if letter in good_guesses:
+                        print(letter, end='')
+                    else:
+                        print('_', end='')
+
+    print("\n Good Guesses:" + str(good_guesses))
+    print("\n Bad Guesses: " + str(bad_guesses))
+    guess = input("\nPlease enter your guess: ").upper()
