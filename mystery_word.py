@@ -18,13 +18,14 @@ guess = input("\nPlease enter your guess: ").upper()
 good_guesses = []
 bad_guesses = []
 
-for letter in random_word_list:
-    if guess in random_word_list:
-        good_guesses.append(guess)
-        print("good" + str(good_guesses))
-    guess = input("\nPlease enter your guess: ").upper()
+while True:
+    for letter in random_word_list:
+        if guess in random_word_list:
+            good_guesses.append(guess)
+            print("good" + str(good_guesses))
+        guess = input("\nPlease enter your guess: ").upper()
 
-    if guess not in random_word_list:
-        bad_guesses.append(guess)
-        print("bad" + str(bad_guesses))
-    guess = input("\nPlease enter your guess: ").upper()
+        if guess not in random_word_list:
+            bad_guesses.append(guess)
+            print("bad" + str(bad_guesses))
+        guess = input("\nPlease enter your guess: ").upper()
