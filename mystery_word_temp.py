@@ -17,6 +17,8 @@ for spaces in random_word:
         print("# ", end='')
 
 guess = input("\nPlease enter your guess: ").upper()
+guesses = ''
+guesses += guess
 
 while len(bad_guesses) < 7:
     for letter in random_letter_list:
@@ -31,9 +33,9 @@ while len(bad_guesses) < 7:
         else:
             print('_ ', end='')
             count += 1
-    print(letter_counter)
+    print(count)
 
-    if letter_counter == good_guesses:
+    if count == 0:
         print("You Win!")
         exit()
 
@@ -42,3 +44,10 @@ while len(bad_guesses) < 7:
     guess = input("\nPlease enter your guess: ").upper()
 else:
     print("You've used all 8 guesses. Game Over")
+
+for char in random_letter_list:
+    if char in guesses:
+        print(char)
+    else:
+        print("_ ")
+        count += 1
