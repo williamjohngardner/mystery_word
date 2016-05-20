@@ -35,18 +35,21 @@ while turns > 0:
             count += 1
     # print(count)
     if count == 0:
-        print("You Win!")
+        print("\n******************"
+              "\n*****You Win!*****"
+              "\n******************")
         exit()
     if guess in random_letter_list:
         goodguesses += guess
     if guess not in random_letter_list:
         badguesses += guess
         turns -= 1
-        print("\n\nYou have", + turns, 'more guesses')
     if turns == 0:
-        print("\nYou've used all 8 guesses. Game Over")
+        print("\n\n***You've used all 8 guesses. Game Over***")
+        print("\nYour word was: " + str(random_word))
         exit()
 
     print("\n\nLetters Found: " + str(goodguesses))
     print("\nLetters Missed: " + str(badguesses))
+    print("\n\nYou have", + turns, 'more guesses')
     guess = input("\n\nPlease guess a letter: ").upper()
