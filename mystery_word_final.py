@@ -3,21 +3,28 @@ import random
 with open("words") as opened_file:
     words = opened_file.read().lower().splitlines()
 
+print("*******MYSTERY WORD GAME*******" +
+      "\n*******************************" +
+      "\nENTER LETTERS TO GUESS THE WORD")
+
 random_word = random.choice(words).upper()
 random_letter_list = list(random_word)
 guesses = ''
 badguesses = ''
 turns = 8
 
-print(random_word)
-print("Your word contains " + str(len(random_letter_list)) + " letters")
+# print(random_word)
+print("\n \nYour word contains " + str(len(random_letter_list)) + " letters")
 for spaces in random_word:
         print("_ ", end='')
 
-guess = input("\nPlease enter your guess: ").upper()
+guess = input("\nPlease guess a letter: ").upper()
 
 while turns > 0:
-    guesses += guess
+    if guess in guesses:
+        print("\nYou've already guessed that letter.")
+    else:
+        guesses += guess
     count = 0
     for char in random_letter_list:
         if char in guesses:
@@ -25,7 +32,7 @@ while turns > 0:
         else:
             print("_ ", end='')
             count += 1
-    print(count)
+    # print(count)
     if count == 0:
         print("You Win!")
         exit()
@@ -34,9 +41,9 @@ while turns > 0:
         turns -= 1
         print("\nYou have", + turns, 'more guesses')
     if turns == 0:
-        print("You've used all 8 guesses. Game Over")
+        print("\nYou've used all 8 guesses. Game Over")
         exit()
 
-    print("\n\nGood Guesses: " + str(guesses))
-    print("\nBad Guesses: " + str(badguesses))
-    guess = input("\nPlease enter your guess: ").upper()
+    print("\n\nLetters Found: " + str(guesses))
+    print("\nLetters Missed: " + str(badguesses))
+    guess = input("\nPlease guess a letter: ").upper()
