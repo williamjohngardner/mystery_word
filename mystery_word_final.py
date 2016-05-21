@@ -1,11 +1,14 @@
 from random_word_generator import random_word_generator
 from user_input import user_input
+from level_chooser import level_chooser
 
-random_word = random_word_generator()
 
 print("*******MYSTERY WORD GAME*******" +
       "\n*******************************" +
       "\nENTER LETTERS TO GUESS THE WORD")
+
+level_chooser()
+random_word = random_word_generator()
 
 random_letter_list = list(random_word)
 guesses = ''
