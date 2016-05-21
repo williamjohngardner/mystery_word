@@ -1,6 +1,7 @@
 def level_chooser():
 
     from random_word_generator import random_word_generator
+    from random_word_length import random_word_length
 
     level_choice = int(input("\nChoose a level: " +
                          "\nEasy:   1" +
@@ -17,14 +18,14 @@ def level_chooser():
                                  "\nEnter your choice:"))
 
     while level_choice == 1:
-        if len(random_word_generator()) > 6:
+        if random_word_length() > 6:
             random_word_generator()
             return random_word_generator()
     while level_choice == 2:
-        if 11 > len(random_word_generator()) > 6:
+        if 11 > random_word_length() > 6:
             random_word_generator()
             return random_word_generator()
     while level_choice == 3:
-        if len(random_word_generator()) < 11:
+        if random_word_length() < 11:
             random_word_generator()
             return random_word_generator()

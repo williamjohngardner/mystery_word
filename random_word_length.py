@@ -4,5 +4,5 @@ def random_word_length():
 
     word_length = len(random_word_generator())
 
-    print(word_length)
-    print(type(word_length))
+    return word_length
+

@@ -41,7 +41,12 @@ while turns > 0:
         print("\n******************"
               "\n*****You Win!*****"
               "\n******************")
-        exit()
+        while True:
+            play_again = input("\nWould you like to play again? Y or N?")
+            if play_again == Y:
+                os.execl(sys.executable, sys.executable, *sys.argv)
+            else:
+                exit()
     if guess in random_letter_list:
         goodguesses += guess
     if guess not in random_letter_list:
