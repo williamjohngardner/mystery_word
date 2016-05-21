@@ -1,13 +1,17 @@
-import random
+from random_word_generator import random_word_generator
+from user_input import user_input
 
-with open("words") as opened_file:
-    words = opened_file.read().lower().splitlines()
+random_word = random_word_generator()
+# import random
+
+# with open("words") as opened_file:
+#     words = opened_file.read().lower().splitlines()
 
 print("*******MYSTERY WORD GAME*******" +
       "\n*******************************" +
       "\nENTER LETTERS TO GUESS THE WORD")
 
-random_word = random.choice(words).upper()
+# random_word = random.choice(words).upper()
 random_letter_list = list(random_word)
 guesses = ''
 badguesses = ''
@@ -19,7 +23,8 @@ print("\n \nYour word contains " + str(len(random_letter_list)) + " letters")
 for spaces in random_word:
         print("_ ", end='')
 
-guess = input("\n\nPlease guess a letter: ").upper()
+# guess = input("\n\nPlease guess a letter: ").upper()
+guess = user_input()
 
 while turns > 0:
     if guess in guesses:
@@ -52,4 +57,5 @@ while turns > 0:
     print("\n\nLetters Found: " + str(goodguesses))
     print("\nLetters Missed: " + str(badguesses))
     print("\n\nYou have", + turns, 'more guesses')
-    guess = input("\n\nPlease guess a letter: ").upper()
+    # guess = input("\n\nPlease guess a letter: ").upper()
+    guess = user_input()
