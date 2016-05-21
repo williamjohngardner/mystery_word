@@ -2,14 +2,13 @@ def user_input():
 
     import string
 
-    # punctuation = ['(', ')', '?', ':', ';', ',', '.', '!', '/', '"', "'", " "]
-
     guess = input("\n\nPlease guess a letter: ").upper()
 
     for item in string.punctuation:
         if guess == item:
             print("\nEntry must be a letter!")
             guess = input("\n\nPlease guess a letter: ").upper()
+
     if type(guess) == int:
         print("\nEntry must be a letter!")
         guess = input("\n\nPlease guess a letter: ").upper()
@@ -18,5 +17,3 @@ def user_input():
         guess = input("\n\nPlease guess a letter: ").upper()
     else:
         return guess
-
-
