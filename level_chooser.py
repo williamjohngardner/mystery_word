@@ -17,15 +17,23 @@ def level_chooser():
                                  "\nHard:   3" +
                                  "\nEnter your choice:"))
 
-    while level_choice == 1:
-        if random_word_length() > 6:
-            random_word_generator()
-            return random_word_generator()
-    while level_choice == 2:
-        if 11 > random_word_length() > 6:
-            random_word_generator()
-            return random_word_generator()
-    while level_choice == 3:
-        if random_word_length() < 11:
-            random_word_generator()
-            return random_word_generator()
+    while True:
+        random_word_list = list(random_word_generator())
+        if level_choice == 1:
+            if int(len(random_word_list)) > 6:
+                print(len(random_word_list))
+                print(random_word_list)
+            else:
+                return random_word_list
+        if level_choice == 2:
+            if 11 > int(len(random_word_list)) > 6:
+                print(random_word_length())
+                print(random_word_list)
+            else:
+                return random_word_list
+        if level_choice == 3:
+            if int(len(random_word_list)) < 11:
+                print(random_word_length())
+                print(random_word_list)
+            else:
+                return random_word_list

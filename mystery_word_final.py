@@ -1,7 +1,6 @@
 from random_word_generator import random_word_generator
 from user_input import user_input
 from level_chooser import level_chooser
-from restart import restart_program
 
 
 print("*******MYSTERY WORD GAME*******" +
@@ -42,8 +41,7 @@ while turns > 0:
         print("\n******************"
               "\n*****You Win!*****"
               "\n******************")
-        while True:
-            restart_program()
+        break
     if guess in random_letter_list:
         goodguesses += guess
     if guess not in random_letter_list:
