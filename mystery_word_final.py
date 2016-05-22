@@ -5,7 +5,7 @@ from level_chooser import level_chooser
 import sys
 import os
 
-print("*******MYSTERY WORD GAME*******" +
+print("\n*******MYSTERY WORD GAME*******" +
       "\n*******************************" +
       "\nENTER LETTERS TO GUESS THE WORD")
 
