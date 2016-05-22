@@ -2,6 +2,8 @@ from random_word_generator import random_word_generator
 from user_input import user_input
 from level_chooser import level_chooser
 
+import sys
+import os
 
 print("*******MYSTERY WORD GAME*******" +
       "\n*******************************" +
@@ -41,7 +43,13 @@ while turns > 0:
         print("\n******************"
               "\n*****You Win!*****"
               "\n******************")
-        break
+        while True:
+            answer = input('Would you like to play again? y or n ')
+            if answer == 'y':
+                os.execl(sys.executable, 'python', __file__, *sys.argv[1:])
+            elif answer == 'n':
+                print('Bummer')
+                exit()
     if guess in random_letter_list:
         goodguesses += guess
     if guess not in random_letter_list:
@@ -50,7 +58,13 @@ while turns > 0:
     if turns == 0:
         print("\n\n***You've used all 8 guesses. Game Over***")
         print("\nYour word was: " + str(random_word))
-        exit()
+        while True:
+            answer = input('Would you like to play again? y or n ')
+            if answer == 'y':
+                os.execl(sys.executable, 'python', __file__, *sys.argv[1:])
+            elif answer == 'n':
+                print('Bummer')
+                exit()
 
     print("\n\nLetters Found: " + str(goodguesses))
     print("\nLetters Missed: " + str(badguesses))
