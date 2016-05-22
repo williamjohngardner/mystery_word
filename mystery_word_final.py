@@ -1,6 +1,7 @@
 from random_word_generator import random_word_generator
 from user_input import user_input
 from level_chooser import level_chooser
+from restart import restart_program
 
 
 print("*******MYSTERY WORD GAME*******" +
@@ -42,11 +43,7 @@ while turns > 0:
               "\n*****You Win!*****"
               "\n******************")
         while True:
-            play_again = input("\nWould you like to play again? Y or N?")
-            if play_again == Y:
-                os.execl(sys.executable, sys.executable, *sys.argv)
-            else:
-                exit()
+            restart_program()
     if guess in random_letter_list:
         goodguesses += guess
     if guess not in random_letter_list:
