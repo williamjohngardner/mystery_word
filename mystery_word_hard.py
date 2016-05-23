@@ -10,7 +10,7 @@ print("\n*******MYSTERY WORD GAME*******" +
       "\nENTER LETTERS TO GUESS THE WORD")
 
 random_word = random_word_generator()
-level_chooser()
+random_word = level_chooser()
 random_letter_list = list(random_word)
 guesses = ''
 badguesses = ''

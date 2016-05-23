@@ -25,7 +25,7 @@ def level_chooser():
             else:
                 break
         if level_choice == 2:
-            if len(random_word) >= 12 | len(random_word) <= 6:
+            if len(random_word) >= 12 or len(random_word) <= 6:
                 continue
             else:
                 break
@@ -34,5 +34,4 @@ def level_chooser():
                 continue
             else:
                 break
-    else:
-        return random_word
+    return random_word
